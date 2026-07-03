@@ -31,7 +31,19 @@ function add(){
 /* 戦績 */
 function render(){
 
-  document.getElementById("p1").innerHTML =
+  const p1 = document.getElementById("p1");
+
+  if(data.length === 0){
+    p1.innerHTML = `
+      <div class="battleCard" style="text-align:center;opacity:.6;">
+        戦績がありません
+      </div>
+    `;
+    analyze();
+    return;
+  }
+
+  p1.innerHTML =
     data.slice().reverse().map(d=>`
       <div class="battleCard">
         <b>${d.stage}</b><br>
@@ -55,26 +67,28 @@ function render(){
 
   analyze();
 }
-
 /* 分析 */
 function analyze(){
 
-  if(data.length===0) return;
+  const empty = document.getElementById("avgGold");
 
-  const avg=k=>
-    data.reduce((a,b)=>a+(b[k]||0),0)/data.length;
+  if(data.length === 0){
+    document.getElementById("avgGold").innerText = "-";
+    document.getElementById("avgAssist").innerText = "-";
+    document.getElementById("avgRed").innerText = "-";
+    document.getElementById("winRate").innerText = "-";
 
-  const win = data.filter(d=>d.result.includes("成功")).length;
+    return;
+  }
 
-  avgGold.innerText = Math.round(avg("gold"));
-  avgAssist.innerText = Math.round(avg("goldA"));
-  avgRed.innerText = Math.round(avg("red"));
-  winRate.innerText = Math.round((win/data.length)*100)+"%";
-}
+  const avg = key =>
+    data.reduce((a,b)=>a + (b[key] || 0), 0) / data.length;
 
-render();
-function remove(id){
-  data = data.filter(d => d.id !== id);
-  localStorage.setItem("samolog", JSON.stringify(data));
-  render();
+  const win = data.filter(d => d.result.includes("成功")).length;
+
+  document.getElementById("avgGold").innerText = Math.round(avg("gold"));
+  document.getElementById("avgAssist").innerText = Math.round(avg("goldA"));
+  document.getElementById("avgRed").innerText = Math.round(avg("red"));
+  document.getElementById("winRate").innerText =
+    Math.round((win / data.length) * 100) + "%";
 }
