@@ -229,3 +229,25 @@ button, input, select{
 #detail.active{
   transform:translateY(0);
 }
+.specialItem{
+  background:#0b0b0b;
+  border:1px solid rgba(255,140,0,.25);
+  border-radius:16px;
+  padding:12px 14px;
+  margin:10px 0;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  font-weight:900;
+}
+
+.specialName{
+  font-size:14px;
+}
+
+.specialRate{
+  font-size:18px;
+  color:#ffb347;
+}
