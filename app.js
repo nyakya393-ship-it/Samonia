@@ -128,6 +128,7 @@ document.getElementById("specialRank").innerHTML =
       <div class="specialRate">${Math.round(s.rate)}%</div>
     </div>
   `).join("");
+}
 function remove(index){
   showToast("削除しました");
   data.splice(index, 1);
