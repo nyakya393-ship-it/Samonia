@@ -128,6 +128,39 @@ document.getElementById("specialRank").innerHTML =
       <div class="specialRate">${Math.round(s.rate)}%</div>
     </div>
   `).join("");
+  const stages = {};
+
+data.forEach(d=>{
+  if(!stages[d.stage]){
+    stages[d.stage] = {total:0, win:0};
+  }
+
+  stages[d.stage].total++;
+
+  if(d.result.includes("成功")){
+    stages[d.stage].win++;
+  }
+});
+
+const stageList = Object.keys(stages).map(s=>{
+  const st = stages[s];
+  return {
+    name: s,
+    rate: (st.win / st.total) * 100
+  };
+});
+
+/* 成功率順 */
+stageList.sort((a,b)=>b.rate - a.rate);
+
+/* 表示 */
+document.getElementById("stageRank").innerHTML =
+  stageList.map(s=>`
+    <div class="rankItem">
+      <div class="rankName">${s.name}</div>
+      <div class="rankRate">${Math.round(s.rate)}%</div>
+    </div>
+  `).join("");
 }
 function remove(index){
   showToast("削除しました");
