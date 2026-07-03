@@ -203,3 +203,16 @@ button, input, select{
   opacity:1;
   transform:translateX(-50%) translateY(-6px);
 }
+#detail{
+  position:fixed;
+  inset:0;
+  background:#0b0b0b;
+  color:#fff;
+  padding:20px;
+  display:none;
+  z-index:999;
+}
+
+#detail.active{
+  display:block;
+}
