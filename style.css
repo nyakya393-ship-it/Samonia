@@ -203,16 +203,24 @@ button, input, select{
   opacity:1;
   transform:translateX(-50%) translateY(-6px);
 }
+
 #detail{
   position:fixed;
-  inset:0;
+  left:0;
+  right:0;
+  bottom:0;
   background:#0b0b0b;
   color:#fff;
   padding:20px;
-  display:none;
+  border-radius:20px 20px 0 0;
+
+  transform:translateY(100%);
+  transition:.3s ease;
   z-index:999;
+  max-height:80vh;
+  overflow:auto;
 }
 
 #detail.active{
-  display:block;
+  transform:translateY(0);
 }
