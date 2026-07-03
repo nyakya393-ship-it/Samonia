@@ -13,7 +13,7 @@ function go(i){
 }
 
 function add(){
-
+showToast("保存しました");
   data.push({
     id:Date.now(),
     stage:stage.value,
@@ -91,7 +91,17 @@ function analyze(){
     Math.round((win / data.length) * 100) + "%";
 }
 function remove(index){
+  showToast("削除しました");
   data.splice(index, 1);
   localStorage.setItem("samolog", JSON.stringify(data));
   render();
+}
+function showToast(text){
+  const toast = document.getElementById("toast");
+  toast.innerText = text;
+  toast.classList.add("show");
+
+  setTimeout(()=>{
+    toast.classList.remove("show");
+  }, 1500);
 }
