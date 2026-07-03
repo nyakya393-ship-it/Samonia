@@ -40,7 +40,7 @@ function render(){
   }
 
   p1.innerHTML =
-    data.slice().reverse().map((d, i)=>`
+    data.map((d, i)=>`
 
       <div class="battleCard">
         <b>${d.stage}</b><br>
@@ -48,7 +48,7 @@ function render(){
         ${d.special}<br>
         金:${d.gold} / アシ:${d.goldA} / 赤:${d.red}
 
-        <button onclick="remove(${data.length - 1 - i})" style="
+        <button onclick="remove(${i})" style="
           margin-top:10px;
           background:#ff4d4d;
           color:#fff;
@@ -59,8 +59,8 @@ function render(){
         ">
           削除
         </button>
-
       </div>
+
     `).join("");
 
   analyze();
