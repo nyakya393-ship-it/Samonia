@@ -90,3 +90,8 @@ function analyze(){
   document.getElementById("winRate").innerText =
     Math.round((win / data.length) * 100) + "%";
 }
+function remove(index){
+  data.splice(index, 1);
+  localStorage.setItem("samolog", JSON.stringify(data));
+  render();
+}
