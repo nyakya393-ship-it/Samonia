@@ -27,7 +27,7 @@ body{
 }
 
 /* =========================
-   HEADER（InkLog基準）
+   HEADER
 ========================= */
 
 header{
@@ -35,7 +35,7 @@ header{
 }
 
 .logoMain{
-  font-size:56px;   /* ←重要：戻す */
+  font-size:56px;
   font-weight:900;
   text-shadow:0 0 18px rgba(255,140,0,.5);
 }
@@ -46,7 +46,7 @@ header{
 }
 
 /* =========================
-   TAB（ここが修正ポイント）
+   TAB
 ========================= */
 
 .tabs{
@@ -60,8 +60,8 @@ header{
 
 .tab{
   flex:1;
-  padding:18px;          /* ←でかく戻す */
-  font-size:20px;        /* ←でかく戻す */
+  padding:18px;
+  font-size:20px;
   font-weight:900;
   border:none;
   border-radius:18px;
@@ -89,7 +89,7 @@ header{
 }
 
 /* =========================
-   CARD
+   CARD（統一幅の本体）
 ========================= */
 
 .card{
@@ -105,19 +105,26 @@ header{
   box-sizing:border-box;
 }
 
+/* スペシャル用の別枠 */
+.wideCard{
+  width:100%;
+  max-width:700px;
+  margin:16px auto;
+}
+
 /* =========================
-   INPUT（ここ重要）
+   INPUT
 ========================= */
 
 input,select{
   width:100%;
-  padding:20px;        /* ←大きく */
+  padding:20px;
   margin:10px 0;
 
   border-radius:22px;
   border:none;
 
-  background:#000;     /* ←黒強制 */
+  background:#000;
   color:#fff;
 
   font-size:16px;
@@ -152,7 +159,7 @@ button{
 }
 
 /* =========================
-   KPI（ここが一番重要）
+   KPI
 ========================= */
 
 .statGrid{
@@ -174,7 +181,7 @@ button{
 }
 
 .statValue{
-  font-size:38px;      /* ←かなり大きく */
+  font-size:38px;
   font-weight:900;
   color:#ffb347;
 }
@@ -192,6 +199,11 @@ button{
 button, input, select{
   touch-action:manipulation;
 }
+
+/* =========================
+   トースト
+========================= */
+
 #toast{
   position:fixed;
   left:50%;
@@ -214,6 +226,10 @@ button, input, select{
   transform:translateX(-50%) translateY(-6px);
 }
 
+/* =========================
+   詳細
+========================= */
+
 #detail{
   position:fixed;
   left:0;
@@ -231,7 +247,6 @@ button, input, select{
 
   z-index:999;
 
-  /* 🔥ここが重要：もっと上まで出す */
   height:92vh;
   overflow:auto;
 }
@@ -239,6 +254,15 @@ button, input, select{
 #detail.active{
   transform:translateY(0);
 }
+
+/* =========================
+   スペシャルランキング
+========================= */
+
+#specialRank{
+  width:100%;
+}
+
 .specialItem{
   background:#0b0b0b;
   border:1px solid rgba(255,140,0,.25);
@@ -254,12 +278,10 @@ button, input, select{
   box-sizing:border-box;
 }
 
-/* 左側（名前） */
 .specialName{
   font-size:14px;
   font-weight:900;
 
-  /* 🔥ここで暴れ防止 */
   flex:1;
 
   white-space:nowrap;
@@ -267,18 +289,11 @@ button, input, select{
   text-overflow:ellipsis;
 }
 
-/* 右側（％） */
 .specialRate{
   font-size:18px;
   font-weight:900;
   color:#ffb347;
 
-  /* 🔥固定幅にする */
   min-width:60px;
   text-align:right;
-}
-#specialRank{
-  width:100%;
-  max-width:100%;
-  margin:0;
 }
