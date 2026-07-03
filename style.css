@@ -270,3 +270,8 @@ button, input, select{
   min-width:60px;
   text-align:right;
 }
+#specialRank{
+  width:100%;
+  max-width:700px;
+  margin:0 auto;
+}
