@@ -48,17 +48,27 @@ function render(){
         ${d.special}<br>
         金:${d.gold} / アシ:${d.goldA} / 赤:${d.red}
 
-        <button onclick="remove(${i})" style="
-          margin-top:10px;
-          background:#ff4d4d;
-          color:#fff;
-          border:none;
-          padding:10px;
-          border-radius:12px;
-          font-weight:900;
-        ">
-          削除
-        </button>
+<button onclick="closeDetail()" style="
+  position:sticky;
+  top:0;
+  left:0;
+
+  background:#2b3a66; /* 青×紺の中間 */
+  color:#fff;
+
+  border:none;
+  border-radius:10px;
+
+  font-size:13px;
+  font-weight:900;
+
+  padding:6px 10px;
+
+  width:auto;
+  display:inline-block;
+">
+← 戻る
+</button>
       </div>
 
     `).join("");
