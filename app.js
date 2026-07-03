@@ -116,27 +116,28 @@ function openDetail(index){
   detail.innerHTML = `
     
     <!-- ←左上戻るボタン（これだけ残す） -->
-    <button onclick="closeDetail()" style="
-      position:sticky;
-      top:0;
-      left:0;
+<button onclick="closeDetail()" style="
+  position:sticky;
+  top:0;
 
-      background:#2b3a66;
-      color:#fff;
+  background:#2b3a66; /* 青×紺 */
+  color:#fff;
 
-      border:none;
-      border-radius:10px;
+  border:none;
+  border-radius:12px;
 
-      font-size:13px;
-      font-weight:900;
+  font-size:18px;      /* ←ここ大きく */
+  font-weight:900;
 
-      padding:6px 10px;
+  padding:10px 16px;  /* ←ここ大きく */
 
-      width:auto;
-      margin-bottom:10px;
-    ">
-      ← 戻る
-    </button>
+  width:auto;
+  display:inline-block;
+
+  margin-bottom:12px;
+">
+  ← 戻る
+</button>
 
     <div style="line-height:1.8;padding-top:10px;">
 
