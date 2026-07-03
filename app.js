@@ -38,6 +38,18 @@ function render(){
         ${d.result}<br>
         ${d.special}<br>
         金:${d.gold} / アシ:${d.goldA} / 赤:${d.red}
+        
+        <button onclick="remove(${d.id})" style="
+          margin-top:10px;
+          background:#ff4d4d;
+          color:#fff;
+          border:none;
+          padding:10px;
+          border-radius:12px;
+          font-weight:900;
+        ">
+          削除
+        </button>
       </div>
     `).join("");
 
@@ -61,3 +73,8 @@ function analyze(){
 }
 
 render();
+function remove(id){
+  data = data.filter(d => d.id !== id);
+  localStorage.setItem("samolog", JSON.stringify(data));
+  render();
+}
