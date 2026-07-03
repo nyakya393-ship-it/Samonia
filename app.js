@@ -34,24 +34,21 @@ function render(){
   const p1 = document.getElementById("p1");
 
   if(data.length === 0){
-    p1.innerHTML = `
-      <div class="battleCard" style="text-align:center;opacity:.6;">
-        戦績がありません
-      </div>
-    `;
+    p1.innerHTML = `<div class="battleCard" style="text-align:center;opacity:.6;">戦績がありません</div>`;
     analyze();
     return;
   }
 
   p1.innerHTML =
-    data.slice().reverse().map(d=>`
+    data.slice().reverse().map((d, i)=>`
+
       <div class="battleCard">
         <b>${d.stage}</b><br>
         ${d.result}<br>
         ${d.special}<br>
         金:${d.gold} / アシ:${d.goldA} / 赤:${d.red}
-        
-        <button onclick="remove(${d.id})" style="
+
+        <button onclick="remove(${data.length - 1 - i})" style="
           margin-top:10px;
           background:#ff4d4d;
           color:#fff;
@@ -62,6 +59,7 @@ function render(){
         ">
           削除
         </button>
+
       </div>
     `).join("");
 
