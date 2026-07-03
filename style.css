@@ -223,6 +223,7 @@ button, input, select{
 
 #toast.show{
   opacity:1;
+  
   transform:translateX(-50%) translateY(-6px);
 }
 
@@ -294,6 +295,36 @@ button, input, select{
   font-weight:900;
   color:#ffb347;
 
+  min-width:60px;
+  text-align:right;
+}
+.rankItem{
+  background:#0b0b0b;
+  border:1px solid rgba(255,140,0,.25);
+  border-radius:16px;
+
+  padding:12px 14px;
+  margin:10px 0;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  font-weight:900;
+}
+
+.rankName{
+  font-size:14px;
+  flex:1;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.rankRate{
+  font-size:18px;
+  color:#ffb347;
   min-width:60px;
   text-align:right;
 }
