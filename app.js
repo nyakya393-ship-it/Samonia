@@ -108,37 +108,31 @@ function showToast(text){
 function openDetail(index){
 
   const d = data[index];
-
   const detail = document.getElementById("detail");
 
   detail.innerHTML = `
-    <div style="font-size:22px;font-weight:900;margin-bottom:10px;">
-      詳細
+    <div style="position:sticky;top:0;background:#0b0b0b;padding-bottom:10px;">
+      <button onclick="closeDetail()" style="
+        background:none;
+        border:none;
+        color:#fff;
+        font-size:18px;
+        font-weight:900;
+        padding:10px 0;
+      ">
+        ← 戻る
+      </button>
     </div>
 
-    <div style="line-height:1.8;">
+    <div style="line-height:1.8;padding-top:10px;">
       <b>ステージ：</b>${d.stage}<br>
       <b>結果：</b>${d.result}<br>
       <b>スペシャル：</b>${d.special}<br><br>
 
       <b>金イクラ：</b>${d.gold}<br>
       <b>アシスト：</b>${d.goldA}<br>
-      <b>赤イクラ：</b>${d.red}<br><br>
-
-      <b>ID：</b>${d.id}
+      <b>赤イクラ：</b>${d.red}<br>
     </div>
-
-    <button onclick="closeDetail()" style="
-      margin-top:20px;
-      width:100%;
-      padding:14px;
-      border:none;
-      border-radius:12px;
-      background:#ffb347;
-      font-weight:900;
-    ">
-      戻る
-    </button>
   `;
 
   detail.classList.add("active");
