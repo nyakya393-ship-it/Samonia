@@ -1,0 +1,184 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+  color:#fff;
+
+  background:linear-gradient(
+    to top,
+    #2a1206,
+    #7a2f00,
+    #ff8a1f
+  );
+
+  min-height:100vh;
+}
+
+/* 背景 */
+#bgInk{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+}
+
+/* =========================
+   HEADER（InkLog基準）
+========================= */
+
+header{
+  padding:35px 22px 10px;
+}
+
+.logoMain{
+  font-size:56px;   /* ←重要：戻す */
+  font-weight:900;
+  text-shadow:0 0 18px rgba(255,140,0,.5);
+}
+
+.logoSub{
+  font-size:14px;
+  opacity:.7;
+}
+
+/* =========================
+   TAB（ここが修正ポイント）
+========================= */
+
+.tabs{
+  display:flex;
+  gap:10px;
+  margin:18px;
+  padding:10px;
+  background:#141414;
+  border-radius:24px;
+}
+
+.tab{
+  flex:1;
+  padding:18px;          /* ←でかく戻す */
+  font-size:20px;        /* ←でかく戻す */
+  font-weight:900;
+  border:none;
+  border-radius:18px;
+  background:transparent;
+  color:#fff;
+}
+
+.tab.active{
+  background:linear-gradient(135deg,#ffb347,#ff7a18);
+  color:#111;
+  transform:scale(1.03);
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+  display:none;
+  padding:18px;
+}
+
+.page.active{
+  display:block;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+  background:#0b0b0b;
+  border-radius:26px;
+  padding:20px;
+  margin-bottom:16px;
+  border:1px solid rgba(255,140,0,.25);
+}
+
+/* =========================
+   INPUT（ここ重要）
+========================= */
+
+input,select{
+  width:100%;
+  padding:20px;        /* ←大きく */
+  margin:10px 0;
+
+  border-radius:22px;
+  border:none;
+
+  background:#000;     /* ←黒強制 */
+  color:#fff;
+
+  font-size:16px;
+  font-weight:800;
+}
+
+input:focus,select:focus{
+  outline:2px solid #ffb347;
+}
+
+/* ボタン */
+button{
+  width:100%;
+  padding:18px;
+  border:none;
+  border-radius:22px;
+  font-weight:900;
+  background:#ffb347;
+  color:#111;
+}
+
+/* =========================
+   戦績カード
+========================= */
+
+.battleCard{
+  background:#0b0b0b;
+  padding:16px;
+  border-radius:20px;
+  margin:10px 0;
+  border-left:4px solid #ff8a1f;
+}
+
+/* =========================
+   KPI（ここが一番重要）
+========================= */
+
+.statGrid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.statBox{
+  background:#0b0b0b;
+  border-radius:22px;
+  padding:18px;        /* ←増量 */
+  text-align:center;
+}
+
+.statValue{
+  font-size:38px;      /* ←かなり大きく */
+  font-weight:900;
+  color:#ffb347;
+}
+
+.statLabel{
+  font-size:13px;
+  opacity:.7;
+  margin-top:6px;
+}
+
+/* =========================
+   タッチ最適化
+========================= */
+
+button, input, select{
+  touch-action:manipulation;
+}
