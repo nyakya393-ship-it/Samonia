@@ -92,32 +92,42 @@ function analyze(){
   document.getElementById("avgRed").innerText = Math.round(avg("red"));
   document.getElementById("winRate").innerText =
     Math.round((win / data.length) * 100) + "%";
-  /* スペシャル別成功率 */
-  const specials = {};
+const specials = {};
 
-  data.forEach(d=>{
-    if(!specials[d.special]){
-      specials[d.special] = {total:0, win:0};
-    }
+data.forEach(d=>{
+  if(!specials[d.special]){
+    specials[d.special] = {total:0, win:0};
+  }
 
-    specials[d.special].total++;
+  specials[d.special].total++;
 
-    if(d.result.includes("成功")){
-      specials[d.special].win++;
-    }
-  });
+  if(d.result.includes("成功")){
+    specials[d.special].win++;
+  }
+});
 
-  let specialText = "";
+/* 配列にしてランキング化 */
+const list = Object.keys(specials).map(sp=>{
+  const s = specials[sp];
+  const rate = (s.win / s.total) * 100;
 
-  Object.keys(specials).forEach(sp=>{
-    const s = specials[sp];
-    const rate = Math.round((s.win / s.total) * 100);
+  return {
+    name: sp,
+    rate: rate
+  };
+});
 
-    specialText += `${sp}：${rate}%<br>`;
-  });
+/* 成功率順に並び替え */
+list.sort((a,b)=>b.rate - a.rate);
 
-  document.getElementById("specialRate").innerHTML = specialText;
-}
+/* 表示 */
+document.getElementById("specialRank").innerHTML =
+  list.map(s=>`
+    <div class="specialItem">
+      <div class="specialName">${s.name}</div>
+      <div class="specialRate">${Math.round(s.rate)}%</div>
+    </div>
+  `).join("");
 function remove(index){
   showToast("削除しました");
   data.splice(index, 1);
