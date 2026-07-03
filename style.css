@@ -233,21 +233,40 @@ button, input, select{
   background:#0b0b0b;
   border:1px solid rgba(255,140,0,.25);
   border-radius:16px;
+
   padding:12px 14px;
   margin:10px 0;
 
   display:flex;
-  justify-content:space-between;
   align-items:center;
 
-  font-weight:900;
+  /* 🔥これが重要：横広がり防止 */
+  width:100%;
+  max-width:100%;
+
+  box-sizing:border-box;
 }
 
+/* 左側（名前） */
 .specialName{
   font-size:14px;
+  font-weight:900;
+
+  /* 🔥ここで暴れ防止 */
+  flex:1;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
+/* 右側（％） */
 .specialRate{
   font-size:18px;
+  font-weight:900;
   color:#ffb347;
+
+  /* 🔥固定幅にする */
+  min-width:60px;
+  text-align:right;
 }
