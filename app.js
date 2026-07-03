@@ -42,7 +42,7 @@ function render(){
   p1.innerHTML =
     data.map((d, i)=>`
 
-      <div class="battleCard">
+      <div class="battleCard" onclick="openDetail(${i})">
         <b>${d.stage}</b><br>
         ${d.result}<br>
         ${d.special}<br>
@@ -104,4 +104,45 @@ function showToast(text){
   setTimeout(()=>{
     toast.classList.remove("show");
   }, 1500);
+}
+function openDetail(index){
+
+  const d = data[index];
+
+  const detail = document.getElementById("detail");
+
+  detail.innerHTML = `
+    <div style="font-size:22px;font-weight:900;margin-bottom:10px;">
+      詳細
+    </div>
+
+    <div style="line-height:1.8;">
+      <b>ステージ：</b>${d.stage}<br>
+      <b>結果：</b>${d.result}<br>
+      <b>スペシャル：</b>${d.special}<br><br>
+
+      <b>金イクラ：</b>${d.gold}<br>
+      <b>アシスト：</b>${d.goldA}<br>
+      <b>赤イクラ：</b>${d.red}<br><br>
+
+      <b>ID：</b>${d.id}
+    </div>
+
+    <button onclick="closeDetail()" style="
+      margin-top:20px;
+      width:100%;
+      padding:14px;
+      border:none;
+      border-radius:12px;
+      background:#ffb347;
+      font-weight:900;
+    ">
+      戻る
+    </button>
+  `;
+
+  detail.classList.add("active");
+}
+function closeDetail(){
+  document.getElementById("detail").classList.remove("active");
 }
