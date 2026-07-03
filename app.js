@@ -48,26 +48,19 @@ function render(){
         ${d.special}<br>
         金:${d.gold} / アシ:${d.goldA} / 赤:${d.red}
 
-<button onclick="closeDetail()" style="
-  position:sticky;
-  top:0;
-  left:0;
-
-  background:#2b3a66; /* 青×紺の中間 */
+<button onclick="event.stopPropagation(); remove(${i})" style="
+  margin-top:10px;
+  background:linear-gradient(135deg,#ff4d4d,#c40000);
   color:#fff;
-
   border:none;
-  border-radius:10px;
-
-  font-size:13px;
+  padding:10px 14px;
+  border-radius:12px;
   font-weight:900;
-
-  padding:6px 10px;
-
-  width:auto;
-  display:inline-block;
+  font-size:13px;
+  width:100%;
+  box-shadow:0 4px 12px rgba(255,0,0,.25);
 ">
-← 戻る
+  削除
 </button>
       </div>
 
@@ -121,20 +114,32 @@ function openDetail(index){
   const detail = document.getElementById("detail");
 
   detail.innerHTML = `
-    <div style="position:sticky;top:0;background:#0b0b0b;padding-bottom:10px;">
-      <button onclick="closeDetail()" style="
-        background:none;
-        border:none;
-        color:#fff;
-        font-size:18px;
-        font-weight:900;
-        padding:10px 0;
-      ">
-        ← 戻る
-      </button>
-    </div>
+    
+    <!-- ←左上戻るボタン（これだけ残す） -->
+    <button onclick="closeDetail()" style="
+      position:sticky;
+      top:0;
+      left:0;
+
+      background:#2b3a66;
+      color:#fff;
+
+      border:none;
+      border-radius:10px;
+
+      font-size:13px;
+      font-weight:900;
+
+      padding:6px 10px;
+
+      width:auto;
+      margin-bottom:10px;
+    ">
+      ← 戻る
+    </button>
 
     <div style="line-height:1.8;padding-top:10px;">
+
       <b>ステージ：</b>${d.stage}<br>
       <b>結果：</b>${d.result}<br>
       <b>スペシャル：</b>${d.special}<br><br>
@@ -142,6 +147,7 @@ function openDetail(index){
       <b>金イクラ：</b>${d.gold}<br>
       <b>アシスト：</b>${d.goldA}<br>
       <b>赤イクラ：</b>${d.red}<br>
+
     </div>
   `;
 
