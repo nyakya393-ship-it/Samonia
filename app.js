@@ -92,6 +92,31 @@ function analyze(){
   document.getElementById("avgRed").innerText = Math.round(avg("red"));
   document.getElementById("winRate").innerText =
     Math.round((win / data.length) * 100) + "%";
+  /* スペシャル別成功率 */
+  const specials = {};
+
+  data.forEach(d=>{
+    if(!specials[d.special]){
+      specials[d.special] = {total:0, win:0};
+    }
+
+    specials[d.special].total++;
+
+    if(d.result.includes("成功")){
+      specials[d.special].win++;
+    }
+  });
+
+  let specialText = "";
+
+  Object.keys(specials).forEach(sp=>{
+    const s = specials[sp];
+    const rate = Math.round((s.win / s.total) * 100);
+
+    specialText += `${sp}：${rate}%<br>`;
+  });
+
+  document.getElementById("specialRate").innerHTML = specialText;
 }
 function remove(index){
   showToast("削除しました");
