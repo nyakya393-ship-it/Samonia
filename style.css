@@ -209,15 +209,20 @@ button, input, select{
   left:0;
   right:0;
   bottom:0;
+
   background:#0b0b0b;
   color:#fff;
-  padding:20px;
+
+  padding:18px;
   border-radius:20px 20px 0 0;
 
   transform:translateY(100%);
   transition:.3s ease;
+
   z-index:999;
-  max-height:80vh;
+
+  /* 🔥ここが重要：もっと上まで出す */
+  height:92vh;
   overflow:auto;
 }
 
